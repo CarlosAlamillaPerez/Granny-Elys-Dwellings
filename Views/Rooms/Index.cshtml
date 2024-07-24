@@ -1,0 +1,15 @@
+﻿@model List<Room>
+
+<h1>Nuestras Habitaciones</h1>
+
+<div class="room-list">
+    @foreach (var room in Model)
+    {
+        <div class="room-item">
+            <img src="@room.ImageUrl" alt="@room.Name">
+            <h2>@room.Name</h2>
+            <p>Precio: $@room.Price</p>
+            <a asp-action="Details" asp-route-id="@room.Id">Ver detalles</a>
+        </div>
+    }
+</div>
