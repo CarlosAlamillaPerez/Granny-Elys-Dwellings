@@ -1,0 +1,37 @@
+﻿@media (max-width: 770px) {
+    .custom-carousel {
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .custom-card-container > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .custom-card-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .custom-card-container p,
+    .custom-card-container a,
+    .custom-card-container div,
+    .custom-card-container strong {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 360px) {
+    .custom-card-container h3 {
+        font-size: 1rem;
+    }
+
+    .custom-card-container p,
+    .custom-card-container a,
+    .custom-card-container div,
+    .custom-card-container strong {
+        font-size: 0.6rem;
+    }
+}

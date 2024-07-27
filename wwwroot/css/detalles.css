@@ -1,0 +1,178 @@
+﻿/* Estilo del contenedor circular */
+.css-card-container {
+    width: 140px; /* Ancho del contenedor */
+    height: 140px; /* Altura del contenedor */
+    border-radius: 50%; /* Hace que el contenedor sea circular */
+    background-color: dimgrey; /* Color de fondo del contenedor */
+    display: flex; /* Usa flexbox para alinear el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin: 0 auto; /* Centra el contenedor horizontalmente en su contenedor padre */
+    margin-bottom: 0.5rem; /* Espacio debajo del contenedor */
+    overflow: hidden; /* Oculta el contenido que sobresale del contenedor circular */
+    position: relative; /* Necesario para posicionar absolutamente la imagen */
+}
+
+/* Estilo de la imagen */
+.css-card-image {
+    height: 100%; /* Ajusta la altura de la imagen al 100% del contenedor */
+    width: 100%; /* Ajusta el ancho de la imagen para cubrir el contenedor, recortando el exceso */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor circular sin distorsionar */
+    position: absolute; /* Posiciona la imagen absolutamente para que se ajuste al contenedor */
+    top: 0; /* Alinea la imagen al principio del contenedor */
+    left: 0; /* Alinea la imagen al principio del contenedor */
+}
+
+
+
+/* Contenedor de las imágenes */
+.image-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las imágenes se envuelvan en múltiples líneas si es necesario */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    gap: 10px; /* Espacio entre las imágenes */
+    padding: 10px; /* Espacio interno del contenedor */
+}
+
+/* Estilo de las imágenes */
+.sweet-images {
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
+    max-height: 100%; /* Limita la altura máxima al 100% del contenedor */
+    width: auto; /* Ajusta el ancho automáticamente para mantener la proporción */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin recortes */
+    box-sizing: border-box; /* Incluye el padding y el border en el tamaño total de la imagen */
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .sweet-images {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho en pantallas pequeñas */
+        height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    }
+}
+
+
+
+h1 {
+    font-size: 3rem;
+    font-family: 'BeautyReflections-Costume';
+}
+
+.room-details {
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+    .room-details h2 {
+        color: #333;
+        border-bottom: 2px solid #4a90e2;
+        padding-bottom: 10px;
+    }
+
+    .room-details h4 {
+        margin-bottom: 5px;
+        color: #4a90e2;
+    }
+
+    .room-details p {
+        margin: 0 0 15px 20px;
+        line-height: 1.6;
+    }
+
+    .room-details .price {
+        font-size: 1.5em;
+        color: #333;
+        font-weight: bold;
+        margin-left: 0;
+    }
+
+    .room-details .services,
+    .room-details .services_2 {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+        .room-details .services li,
+        .room-details .services_2 li {
+            margin: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+            .room-details .services li:before {
+                content: '✓';
+                position: absolute;
+                left: 0;
+                color: #4a90e2;
+            }
+
+    /* Nuevo estilo para services_2 */
+    .room-details .services_2 {
+        padding-left: 40px; /* Más sangría */
+    }
+
+        .room-details .services_2 li:before {
+            content: '•'; /* Bullet point */
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+    /* Estilo para restricciones */
+    .room-details .restricciones {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+        .room-details .restricciones li {
+            margin: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+            .room-details .restricciones li:before {
+                content: '✕'; /* Cruz */
+                position: absolute;
+                left: 0;
+                color: #e74c3c; /* Rojo */
+            }
+
+.whatsapp-button {
+    display: block; /* Cambia a block para poder usar margin auto */
+    width: fit-content; /* Ajusta el ancho al contenido */
+    margin: 20px auto; /* Centra el botón y añade espacio arriba y abajo */
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
+    .whatsapp-button:hover {
+        background-color: #128C7E; /* Un verde más oscuro para el hover */
+    }
+
+    .whatsapp-button i {
+        margin-right: 8px;
+        font-size: 20px;
+    }
+
+.whatsapp-button {
+    color: white;
+    text-decoration: none;
+}
+
+    .whatsapp-button:hover {
+        color: white;
+        background-color: #128C7E;
+    }

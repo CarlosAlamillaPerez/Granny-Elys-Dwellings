@@ -2,14 +2,37 @@
 
 <h1>Nuestras Habitaciones</h1>
 
+<head>
+    <link rel="stylesheet" href="~/css/rooms.css" asp-append-version="true" />
+</head>
 <div class="room-list">
-    @foreach (var room in Model)
-    {
-        <div class="room-item">
-            <img src="@room.ImageUrl" alt="@room.Name">
-            <h2>@room.Name</h2>
-            <p>Precio: $@room.Price</p>
-            <a asp-action="Details" asp-route-id="@room.Id">Ver detalles</a>
-        </div>
-    }
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        @foreach (var room in Model)
+        {
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="@room.ImagenPrincipal" alt="@room.Name" class="bd-placeholder-img card-img-top" width="100%" height="225" focusable="false">
+                    <div class="card-body">
+                        <h2 class="card-text">@room.Name</h2>
+                        <hr />
+                        @*<p class="card-text">Servicios incluidos:</p>
+                        <ul class="services-list">
+                            @foreach (var service in room.Services)
+                            {
+                                <li class="service-item">@service</li>
+                            }
+                        </ul>*@
+                        <p class="card-text">@room.DescriptionCard</p>
+                        <p class="card-text">@room.Address</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a asp-controller="Rooms" asp-action="Detalles" asp-route-id="@room.Id" class="btn btn-sm btn-outline-secondary">Información</a>
+                            </div>
+                            <small class="text-body-secondary">$@room.Price x Mes</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

@@ -20,7 +20,7 @@ namespace GrannyEly.Controllers
             return View(rooms);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Detalles(int id)
         {
             var room = _roomService.GetRoom(id);
             if (room == null)

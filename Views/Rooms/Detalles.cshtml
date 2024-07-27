@@ -1,0 +1,61 @@
+﻿@model Room
+
+
+<head>
+    <link rel="stylesheet" href="~/css/detalles.css" asp-append-version="true" />
+</head>
+
+<h1 class="text-center m-auto">@Model.Name</h1>
+
+<div class="row">
+    <div class="col-lg-4 text-center m-auto">
+        <div class="css-card-container">
+            <img src="@Model.ImagenPrincipal" alt="@Model.Name" class="css-card-image" />
+        </div>
+        <p><a id="showAlert" class="btn btn-secondary">Ver Fotos »</a></p>
+    </div>
+
+</div>
+
+<template id="sweet-images">
+    <div class="image-container">
+        @foreach (var imagen in @Model.Imagenes)
+        {
+            <img src='@imagen' alt="@Model.Name" class="sweet-images" />
+        }
+    </div>
+</template>
+
+
+<div class="room-details">
+    <h2>Detalles de la Habitación</h2>
+    <p class="price">💰 $@Model.Price Mensuales</p>
+    <h4>📝 Descripción:</h4>
+    <p>@Model.Description</p>
+    <h4>🛎️ Servicios:</h4>
+    <ul class="services">
+        @foreach (var service in Model.Services)
+        {
+            <li>@service</li>
+        }
+    </ul>
+    <ul class="services_2">
+        @foreach (var desc in Model.Description_2)
+        {
+            <li>@desc</li>
+        }
+    </ul>
+    <h4>📍 Dirección:</h4>
+    <p>@Model.Address</p>
+    <h4>🚫 Restricciones: 🚭</h4>
+    <ul class="restricciones">
+        @foreach (var restriccion in Model.Restricciones)
+        {
+            <li>@restriccion</li>
+        }
+    </ul>
+    <p class="price">💰 $@Model.Price Mensuales</p>
+    <a href="https://wa.me/NUMERODEWHATSAPP?text=Hola, me interesa el @Model.Name" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+    </a>
+</div>
