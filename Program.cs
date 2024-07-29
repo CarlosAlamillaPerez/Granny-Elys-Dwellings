@@ -1,7 +1,12 @@
+using GrannyEly.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Registrando RoomService para inyección de dependencias
+builder.Services.AddScoped<RoomService>();
 
 var app = builder.Build();
 
@@ -10,6 +15,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();

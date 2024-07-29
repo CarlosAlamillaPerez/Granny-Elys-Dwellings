@@ -1,6 +1,18 @@
-﻿@model List<Room>
+﻿@model List<RoomModel>
 
-<h1>Nuestras Habitaciones</h1>
+@{
+    ViewData["Title"] = ViewBag.CurrentStatus == 1 ? "Habitaciones en Villahermosa" : "Casa del Caribe en Playa del Carmen";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if (ViewBag.CurrentStatus == 1)
+{
+    <p>Departementos & Habitaciones con servicios incluidos, muebles y accesorios, con diferentes estilos cada una. En <b>¡Zona no inuntable!</b></p>
+}
+else
+{
+    <p>Hermosas Casa del Caribe con piscina, todos los servicios incluidos & en privada residencial.</p>
+}
 
 <head>
     <link rel="stylesheet" href="~/css/rooms.css" asp-append-version="true" />
@@ -15,15 +27,9 @@
                     <div class="card-body">
                         <h2 class="card-text">@room.Name</h2>
                         <hr />
-                        @*<p class="card-text">Servicios incluidos:</p>
-                        <ul class="services-list">
-                            @foreach (var service in room.Services)
-                            {
-                                <li class="service-item">@service</li>
-                            }
-                        </ul>*@
                         <p class="card-text">@room.DescriptionCard</p>
                         <p class="card-text">@room.Address</p>
+                        <p class="card-text">Renta de @room.Estancia</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a asp-controller="Rooms" asp-action="Detalles" asp-route-id="@room.Id" class="btn btn-sm btn-outline-secondary">Información</a>

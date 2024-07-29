@@ -35,3 +35,78 @@
         font-size: 0.6rem;
     }
 }
+
+/* Estilos para el carousel */
+.custom-carousel {
+    max-width: 500px; /* Ajusta este valor según tus necesidades */
+    margin: 0 auto;
+}
+
+.carousel-item {
+    height: 250px; /* Altura fija para todos los items del carousel */
+}
+
+    .carousel-item img {
+        object-fit: cover; /* Mantiene la relación de aspecto y cubre todo el espacio */
+        height: 100%;
+        width: 100%;
+    }
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para mejor legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+    bottom: 20px;
+    left: 10%;
+    right: 10%;
+}
+
+    .carousel-caption h5 {
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .carousel-caption p {
+        font-size: 16px;
+        color: #f0f0f0;
+    }
+
+/* Estilos para los controles del carousel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* Estilos para los indicadores del carousel */
+.carousel-indicators {
+    bottom: -50px;
+}
+
+    .carousel-indicators button {
+        background-color: #999;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    .carousel-indicators .active {
+        background-color: #333;
+    }
+
+
+.col-4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}

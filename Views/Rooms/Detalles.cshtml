@@ -1,4 +1,4 @@
-﻿@model Room
+﻿@model RoomModel
 
 
 <head>
@@ -14,7 +14,6 @@
         </div>
         <p><a id="showAlert" class="btn btn-secondary">Ver Fotos »</a></p>
     </div>
-
 </div>
 
 <template id="sweet-images">
@@ -26,13 +25,18 @@
     </div>
 </template>
 
-
 <div class="room-details">
     <h2>Detalles de la Habitación</h2>
-    <p class="price">💰 $@Model.Price Mensuales</p>
+    <p class="price">💰 $@Model.Price Mensuales + Deposito $@Model.Deposito</p>
     <h4>📝 Descripción:</h4>
     <p>@Model.Description</p>
+    <p>Contrato para renta de @Model.Estancia</p>
+    <hr />
     <h4>🛎️ Servicios:</h4>
+    @if (Model.Services_3 != null && Model.Services_3.Any())
+    {
+        <h5 class="pisos">⬇️ Planta Baja</h5>
+    }
     <ul class="services">
         @foreach (var service in Model.Services)
         {
@@ -40,13 +44,25 @@
         }
     </ul>
     <ul class="services_2">
-        @foreach (var desc in Model.Description_2)
+        @foreach (var desc in Model.Services_2)
         {
             <li>@desc</li>
         }
     </ul>
+    @if (Model.Services_3 != null && Model.Services_3.Any())
+    {
+        <h5 class="pisos">⬆️ Planta Alta</h5>
+        <ul class="services">
+            @foreach (var service in Model.Services_3)
+            {
+                <li>@service</li>
+            }
+        </ul>
+    }
+    <hr />
     <h4>📍 Dirección:</h4>
     <p>@Model.Address</p>
+    <hr />
     <h4>🚫 Restricciones: 🚭</h4>
     <ul class="restricciones">
         @foreach (var restriccion in Model.Restricciones)
@@ -54,8 +70,10 @@
             <li>@restriccion</li>
         }
     </ul>
-    <p class="price">💰 $@Model.Price Mensuales</p>
+    <p class="price">💰 $@Model.Price Mensuales + Deposito $@Model.Deposito</p>
     <a href="https://wa.me/NUMERODEWHATSAPP?text=Hola, me interesa el @Model.Name" target="_blank" class="whatsapp-button">
         <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
     </a>
+    <p class="cel">(99 33 30 07 91)</p>
 </div>
+<a asp-controller="Rooms" asp-action="Index" class="btn btn-sm btn-outline-secondary">Regresar</a>

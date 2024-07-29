@@ -75,7 +75,7 @@ h1 {
         padding-bottom: 10px;
     }
 
-    .room-details h4 {
+    .room-details h4, h5 {
         margin-bottom: 5px;
         color: #4a90e2;
     }
@@ -176,3 +176,13 @@ h1 {
         color: white;
         background-color: #128C7E;
     }
+
+.cel {
+    color: #333;
+    text-align: center;
+    font-size: small;
+}
+
+.pisos {
+    text-align: center;
+}

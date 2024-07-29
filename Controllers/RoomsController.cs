@@ -9,17 +9,20 @@ namespace GrannyEly.Controllers
 
         private readonly RoomService _roomService;
 
-        public RoomsController()
+        public RoomsController(RoomService roomService)
         {
-            _roomService = new RoomService();
+            _roomService = roomService;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(int status = 1)
         {
-            var rooms = _roomService.GetAllRooms();
+            var rooms = _roomService.GetAllRooms().Where(r => r.Status == status).ToList();
+            ViewBag.CurrentStatus = status;
             return View(rooms);
         }
 
+        [HttpGet]
         public IActionResult Detalles(int id)
         {
             var room = _roomService.GetRoom(id);

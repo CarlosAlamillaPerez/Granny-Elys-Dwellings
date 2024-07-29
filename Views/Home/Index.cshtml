@@ -1,72 +1,89 @@
-﻿@{
+﻿@model List<GrannyEly.Models.RoomModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 <head>
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
 </head>
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 mx-auto d-flex justify-content-center mb-4 custom-carousel">
-            <div id="carouselExampleCaptions" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="~/images/habitacion1.jpg" class="d-block w-100" alt="Habitación 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/images/habitacion2.jpg" class="d-block w-100" alt="Habitación 2">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+    <div class="col-12 col-md-4 mx-auto d-flex justify-content-center mb-4 custom-carousel">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")"></button>
+                }
             </div>
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <img src="@Model[i].ImagenPrincipal" class="d-block w-100" alt="@Model[i].Name">
+                        <div class="carousel-caption d-md-block">
+                            <h5>@Model[i].Name</h5>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-
-        <div class="row mb-2 custom-card-container">
-            <div class="col-md-6 col-lg-6 mb-3">
-                <div class="row g-0 border rounded overflow-hidden flex-row h-100 shadow-sm position-relative">
-                    <div class="col-8 p-3 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-1 text-primary-emphasis">Centro, Tabasco</strong>
-                        <h3 class="mb-0">Villahermosa</h3>
-                        <div class="mb-1 text-body-secondary">Desde: <b>$500 por día</b></div>
-                        <p class="card-text mb-auto">Habitaciones todo incluido, con diferentes estilos cada una.</p>
-                        <a class="icon-link gap-1 icon-link-hover stretched-link" asp-controller="Rooms" asp-action="Index">
-                            Continuar leyendo...
-                        </a>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <svg class="bd-placeholder-img img-fluid" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    </div>
+    </div>
+    <br />
+    <div class="row mb-2 custom-card-container">
+        <div class="col-md-6 col-lg-6 mb-3">
+            <div class="row g-0 border rounded overflow-hidden flex-row h-100 shadow-sm position-relative">
+                <div class="col-8 p-3 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-1 text-primary-emphasis">Centro, Tabasco</strong>
+                    <h3 class="mb-0">Villahermosa</h3>
+                    <div class="mb-1 text-body-secondary">Desde: <b>$6,500 por mes</b></div>
+                    <p class="card-text mb-auto">Habitaciones todo incluido, con diferentes estilos cada una.</p>
+                    <a class="icon-link gap-1 icon-link-hover stretched-link" asp-controller="Rooms" asp-action="Index" asp-route-status="1">
+                        ver más...
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-6 mb-3">
-                <div class="row g-0 border rounded overflow-hidden flex-row h-100 shadow-sm position-relative">
-                    <div class="col-8 p-3 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-1 text-success-emphasis">Quintana Roo</strong>
-                        <h3 class="mb-0">Playa del Carmen</h3>
-                        <div class="mb-1 text-body-secondary">Desde:  <b>$1,800 por día</b></div>
-                        <p class="mb-auto">Hermosa casa del caribe, con piscina, todo incluido en privada residencial.</p>
-                        <a class="icon-link gap-1 icon-link-hover stretched-link" asp-controller="Rooms" asp-action="Index">
-                            Continuar leyendo...
-                        </a>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <svg class="bd-placeholder-img img-fluid" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    </div>
+                <div class="col-4 d-flex align-items-center">
+                    @if (Model != null && Model.Any(r => r.Id == 2))
+                    {
+                        var room = Model.FirstOrDefault(r => r.Id == 2);
+                        <img src="@room.ImagenPrincipal" class="img-fluid" alt="@room.Name">
+                    }
+                    else
+                    {
+                        <p>Imagen no disponible</p>
+                    }
                 </div>
             </div>
         </div>
-
-
+        <div class="col-md-6 col-lg-6 mb-3">
+            <div class="row g-0 border rounded overflow-hidden flex-row h-100 shadow-sm position-relative">
+                <div class="col-8 p-3 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-1 text-success-emphasis">Quintana Roo</strong>
+                    <h3 class="mb-0">Playa del Carmen</h3>
+                    <div class="mb-1 text-body-secondary">Desde:  <b>$1,800 por día</b></div>
+                    <p class="mb-auto">Hermosa casa del caribe, con piscina, todo incluido en privada residencial.</p>
+                    <a class="icon-link gap-1 icon-link-hover stretched-link" asp-controller="Rooms" asp-action="Index" asp-route-status="2">
+                        ver más...
+                    </a>
+                </div>
+                <div class="col-4 d-flex align-items-center">
+                    @if (Model != null && Model.Any(r => r.Id == 4))
+                    {
+                        var room = Model.FirstOrDefault(r => r.Id == 4);
+                        <img src="@room.ImagenPrincipal" class="img-fluid" alt="@room.Name">
+                    }
+                    else
+                    {
+                        <p>Imagen no disponible</p>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </div>
