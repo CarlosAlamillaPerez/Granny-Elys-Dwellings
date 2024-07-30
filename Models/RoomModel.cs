@@ -19,6 +19,6 @@
         public List<string>? Services_5 { get; set; }
         public List<string>? Services_extra { get; set; }
         public string DescriptionCard { get; set; }
-        public List<string> Restricciones { get; set; }
+        public List<string>? Restricciones { get; set; }
     }
 }

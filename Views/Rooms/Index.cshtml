@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = ViewBag.CurrentStatus == 1 ? "Habitaciones en Villahermosa" : "Casa del Caribe en Playa del Carmen";
+    var permanencia = ViewBag.CurrentStatus == 1 ? " mensuales" : " diarios";
 }
 <h1>@ViewData["Title"]</h1>
 
@@ -34,7 +35,7 @@ else
                             <div class="btn-group">
                                 <a asp-controller="Rooms" asp-action="Detalles" asp-route-id="@room.Id" asp-route-status="@ViewBag.CurrentStatus" class="btn btn-sm btn-outline-secondary">Información</a>
                             </div>
-                            <small class="text-body-secondary">$@room.Price x Mes</small>
+                            <small class="text-body-secondary">@room.Price @permanencia</small>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 @{
     var permanencia = ViewBag.CurrentStatus == 1 ? " Mensuales" : " Diarios (Por temporada)";
     var precio = $"💰 {Model.Price}" + permanencia;
-    var deposito = ViewBag.CurrentStatus == 1 ? $" + Deposito ${Model.Deposito}" : "";
+    var deposito = ViewBag.CurrentStatus == 1 ? $" + Deposito {Model.Deposito}" : "";
 }
 
 <head>
@@ -60,7 +60,7 @@
         {
             <h5 class="pisos">⬆️ Planta Alta</h5>
             <h5>🛏 Habitación</h5>
-        }        
+        }
         @if (ViewBag.CurrentStatus == 2)
         {
             <h5 class="pisos">⬇️ Planta Baja</h5>
@@ -90,10 +90,7 @@
     @if (Model.Services_4 != null && Model.Services_4.Any())
     {
         <h5 class="pisos">⬆️ Planta Alta</h5>
-        @if (ViewBag.CurrentStatus == 2)
-        {
-            <h5>🛏 Habitación 2</h5>
-        }
+        <h5>🛏 Habitación 2</h5>
         <ul class="services">
             @foreach (var service in Model.Services_4)
             {
@@ -104,10 +101,7 @@
     @if (Model.Services_5 != null && Model.Services_5.Any())
     {
         <h5 class="pisos">⬆️ Planta Alta</h5>
-        @if (ViewBag.CurrentStatus == 2)
-        {
-            <h5>🛏 Habitación 3</h5>
-        }
+        <h5>🛏 Habitación 3</h5>
         <ul class="services">
             @foreach (var service in Model.Services_5)
             {
@@ -119,15 +113,18 @@
     <h4>📍 Dirección:</h4>
     <p>@Model.Address</p>
     <hr />
-    <h4>🚫 Restricciones: 🚭</h4>
-    <ul class="restricciones">
-        @foreach (var restriccion in Model.Restricciones)
-        {
-            <li>@restriccion</li>
-        }
-    </ul>
+    @if (Model.Restricciones != null && Model.Restricciones.Any())
+    {
+        <h4>🚫 Restricciones: 🚭</h4>
+        <ul class="restricciones">
+            @foreach (var restriccion in Model.Restricciones)
+            {
+                <li>@restriccion</li>
+            }
+        </ul>
+    }
     <p class="price">@($"{precio}{deposito}")</p>
-    <a href="https://wa.me/NUMERODEWHATSAPP?text=Hola, me interesa el @Model.Name" target="_blank" class="whatsapp-button">
+    <a href="https://wa.me/529933300791?text=@Uri.EscapeDataString($"Hola, quisiera información sobre {Model.Name}")" target="_blank" class="whatsapp-button">
         <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
     </a>
     <p class="cel">(99 33 30 07 91)</p>

@@ -49,7 +49,7 @@ namespace GrannyEly.Services
                     //"Mesita de centro",
                     "Barra comedor",
                     "2 Ventiladores de techo",
-                    "1 Aire Acondicionado (Minisplit) ",
+                    "1 Aire acondicionado (Minisplit) ",
                     "1 Smart TV 32'",
                     "1 Espejo de Pared",
                     "1 Plancha de ropa",
@@ -124,7 +124,7 @@ namespace GrannyEly.Services
                     "Juego Sala (2 piezas)",
                     "Mesita de centro",
                     "Mesa Comedor",
-                    "2 Aires Acondicionados (Minisplit)",
+                    "2 Aires acondicionados (Minisplit)",
                     "1 Smart TV 32'",
                     "2 Espejos de pared",
                     "1 Plancha de ropa",
@@ -194,7 +194,7 @@ namespace GrannyEly.Services
                     "Mesa comedor / Esritorio",
                     "2 Burós de cama & 2 lámparas de mesa",
                     "1 Espejo de Pared & 1 espejo pequeño",
-                    "1 Aire Acondicionado (Minisplit)",
+                    "1 Aire acondicionado (Minisplit)",
                     "1 Smart TV 32' ",
                     "1 Plancha de ropa",
                     "Boiler",
@@ -255,7 +255,7 @@ namespace GrannyEly.Services
                     "Mesita de centro",
                     "Barra comedor",
                     "1 Ventilador de techo con lámpara",
-                    "1 Aire Acondicionado (Minisplit) ",
+                    "1 Aire acondicionado (Minisplit) ",
                     "1 TV 32' (En sala)",
                     "Baño completo",
                     "Cocina completa:",
@@ -274,7 +274,7 @@ namespace GrannyEly.Services
                 Services_3 = new List<string>
                 {
                     "Cama matrimonial",
-                    "1 Aire Acondicionado (Minisplit) ",
+                    "1 Aire acondicionado (Minisplit) ",
                     "1 Smart TV 32' (Habitación)",
                     "1 Espejo de Pared",
                     "1 Buró mediano para ropa",
@@ -439,6 +439,80 @@ namespace GrannyEly.Services
                     "No Mascotas",
                     "No Fumadores"
                 },
+            },
+            new RoomModel
+            {
+                Id = 6,
+                Status = 1,
+                Name = "Las Bugambilias",
+                Price = "$12,000",
+                Deposito = "$12,000",
+                Address = "Villahermosa, Tabasco. Fraccionamiento privada 'Bugambilias' Colonia: Atasta",
+                Estancia = "1 año en adelante.",
+                Description = "Casa grande en privada bugambilias con 3 habitaciones. Zona no inundable, cerca de la DACS, Hospital del Niño, Hospital de la Mujer, Deportiva, Plaza Cristal, etc...",
+                DescriptionCard = "Casa grande en privada bugambilias con 3 habitaciones, sin servicios incluidos.",
+                ImagenPrincipal = "/images/Casita1.jpg",
+                Imagenes = new List<string>
+                {
+                    "/images/Casita1.jpg",
+                    "/images/Casita2.jpg",
+                    "/images/Casita3.jpg",
+                    "/images/Casita4.jpg",
+                    "/images/Casita5.jpg",
+                    "/images/Casita6.jpg",
+                    "/images/Casita7.jpg",
+                    "/images/Casita8.jpg",
+                    "/images/Casita9.jpg",
+                    "/images/Casita10.jpg",
+                },
+                Services = new List<string>
+                {
+                    "Recibidor",
+                    "Área de Sala",
+                    "Pátio de lavado",
+                    "Pasillo de servicios/Garage",
+                    "Cochera para 3 vehículos (sin techar)",
+                    "Boiler",
+                    "1/2 Baño",
+                    "1 Aire acondicionado en sala (Minisplit) ",
+                    "Cocina grande:",
+                },
+                Services_2 = new List<string>
+                {
+                    "Estufa",
+                    "Refrijerador",
+                    "Lavatrastes",
+                    "Alacena grande con divisiones",
+                    "Dispensador de agua",
+                    //"Microondas",
+                    //"Licuadora",
+                    //"Cafetera",
+                    //"Utencilios de cocina: (Sartenes, vasos, platos, tenedores, cucharas, cuchillos, etc...)."
+                },
+                Services_3 = new List<string>
+                {
+                    "Baño completo",
+                    "1 Aire acondicionado (Minisplit) ",
+                    "Clóset grande de puertas con divisiones & ganchos",
+                    "Espejo de closet grande",
+                },
+                Services_4 = new List<string>
+                {
+                    "Baño compartido",
+                    "1 Aire acondicionado (Minisplit) ",
+                    "Clóset grande de puertas con divisiones & ganchos",
+                },
+                Services_5 = new List<string>
+                {
+                    "Baño compartido",
+                    "1 Aire acondicionado (Minisplit) ",
+                    "Clóset grande de puertas con divisiones & ganchos",
+                },
+                //Restricciones = new List<string>
+                //{
+                //    "No Mascotas",
+                //    "No Fumadores",
+                //},
             },
             // Añade más habitaciones aquí
         };
