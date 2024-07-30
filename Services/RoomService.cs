@@ -484,10 +484,6 @@ namespace GrannyEly.Services
                     "Lavatrastes",
                     "Alacena grande con divisiones",
                     "Dispensador de agua",
-                    //"Microondas",
-                    //"Licuadora",
-                    //"Cafetera",
-                    //"Utencilios de cocina: (Sartenes, vasos, platos, tenedores, cucharas, cuchillos, etc...)."
                 },
                 Services_3 = new List<string>
                 {
@@ -508,11 +504,6 @@ namespace GrannyEly.Services
                     "1 Aire acondicionado (Minisplit) ",
                     "Clóset grande de puertas con divisiones & ganchos",
                 },
-                //Restricciones = new List<string>
-                //{
-                //    "No Mascotas",
-                //    "No Fumadores",
-                //},
             },
             // Añade más habitaciones aquí
         };
