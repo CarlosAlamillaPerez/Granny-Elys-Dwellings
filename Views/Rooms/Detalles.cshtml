@@ -1,5 +1,10 @@
 ﻿@model RoomModel
 
+@{
+    var permanencia = ViewBag.CurrentStatus == 1 ? " Mensuales" : " Diarios (Por temporada)";
+    var precio = $"💰 {Model.Price}" + permanencia;
+    var deposito = ViewBag.CurrentStatus == 1 ? $" + Deposito ${Model.Deposito}" : "";
+}
 
 <head>
     <link rel="stylesheet" href="~/css/detalles.css" asp-append-version="true" />
@@ -27,7 +32,7 @@
 
 <div class="room-details">
     <h2>Detalles de la Habitación</h2>
-    <p class="price">💰 $@Model.Price Mensuales + Deposito $@Model.Deposito</p>
+    <p class="price">@($"{precio}{deposito}")</p>
     <h4>📝 Descripción:</h4>
     <p>@Model.Description</p>
     <p>Contrato para renta de @Model.Estancia</p>
@@ -51,9 +56,60 @@
     </ul>
     @if (Model.Services_3 != null && Model.Services_3.Any())
     {
-        <h5 class="pisos">⬆️ Planta Alta</h5>
+        @if (ViewBag.CurrentStatus == 1)
+        {
+            <h5 class="pisos">⬆️ Planta Alta</h5>
+            <h5>🛏 Habitación</h5>
+        }        
+        @if (ViewBag.CurrentStatus == 2)
+        {
+            <h5 class="pisos">⬇️ Planta Baja</h5>
+            <h5>🛏 Habitación 1</h5>
+        }
         <ul class="services">
             @foreach (var service in Model.Services_3)
+            {
+                <li>@service</li>
+            }
+        </ul>
+    }
+    @if (Model.Services_extra != null && Model.Services_extra.Any())
+    {
+        <h5 class="pisos">⬆️ Planta Alta</h5>
+        @if (ViewBag.CurrentStatus == 2)
+        {
+            <h5>🛏 Sala de Estar</h5>
+        }
+        <ul class="services">
+            @foreach (var service in Model.Services_extra)
+            {
+                <li>@service</li>
+            }
+        </ul>
+    }
+    @if (Model.Services_4 != null && Model.Services_4.Any())
+    {
+        <h5 class="pisos">⬆️ Planta Alta</h5>
+        @if (ViewBag.CurrentStatus == 2)
+        {
+            <h5>🛏 Habitación 2</h5>
+        }
+        <ul class="services">
+            @foreach (var service in Model.Services_4)
+            {
+                <li>@service</li>
+            }
+        </ul>
+    }
+    @if (Model.Services_5 != null && Model.Services_5.Any())
+    {
+        <h5 class="pisos">⬆️ Planta Alta</h5>
+        @if (ViewBag.CurrentStatus == 2)
+        {
+            <h5>🛏 Habitación 3</h5>
+        }
+        <ul class="services">
+            @foreach (var service in Model.Services_5)
             {
                 <li>@service</li>
             }
@@ -70,7 +126,7 @@
             <li>@restriccion</li>
         }
     </ul>
-    <p class="price">💰 $@Model.Price Mensuales + Deposito $@Model.Deposito</p>
+    <p class="price">@($"{precio}{deposito}")</p>
     <a href="https://wa.me/NUMERODEWHATSAPP?text=Hola, me interesa el @Model.Name" target="_blank" class="whatsapp-button">
         <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
     </a>

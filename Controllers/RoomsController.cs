@@ -23,13 +23,16 @@ namespace GrannyEly.Controllers
         }
 
         [HttpGet]
-        public IActionResult Detalles(int id)
+        public IActionResult Detalles(int id, int status)
         {
             var room = _roomService.GetRoom(id);
             if (room == null)
             {
                 return NotFound();
             }
+
+            ViewBag.CurrentStatus = status;
+
             return View(room);
         }
     }

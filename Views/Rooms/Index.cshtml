@@ -32,7 +32,7 @@ else
                         <p class="card-text">Renta de @room.Estancia</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a asp-controller="Rooms" asp-action="Detalles" asp-route-id="@room.Id" class="btn btn-sm btn-outline-secondary">Información</a>
+                                <a asp-controller="Rooms" asp-action="Detalles" asp-route-id="@room.Id" asp-route-status="@ViewBag.CurrentStatus" class="btn btn-sm btn-outline-secondary">Información</a>
                             </div>
                             <small class="text-body-secondary">$@room.Price x Mes</small>
                         </div>
