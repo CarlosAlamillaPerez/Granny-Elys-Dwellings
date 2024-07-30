@@ -365,6 +365,8 @@ namespace GrannyEly.Services
                     "/images/Caribe99.jpg",
                     "/images/Caribe120.jpg",
                     "/images/Caribe121.jpg",
+                    "/images/Caribe122.jpg",
+                    "/images/Caribe123.jpg",
                     "/images/Caribe130.jpg",
 
                 },
