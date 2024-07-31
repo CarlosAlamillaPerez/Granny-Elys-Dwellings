@@ -49,7 +49,7 @@
                     </a>
                 </div>
                 <div class="col-4 d-flex align-items-center">
-                    @if (Model != null && Model.Any(r => r.Id == 2))
+                    @if (Model != null && Model.Any() && Model.FirstOrDefault(r => r.Id == 2) != null)
                     {
                         var room = Model.FirstOrDefault(r => r.Id == 2);
                         <img src="@room.ImagenPrincipal" class="img-fluid" alt="@room.Name">
@@ -73,9 +73,9 @@
                     </a>
                 </div>
                 <div class="col-4 d-flex align-items-center">
-                    @if (Model != null && Model.Any(r => r.Id == 5))
+                    @if (Model != null && Model.Any() && Model.FirstOrDefault(r => r.Id == 2) != null)
                     {
-                        var room = Model.FirstOrDefault(r => r.Id == 5);
+                        var room = Model.FirstOrDefault(r => r.Id == 2);
                         <img src="@room.ImagenPrincipal" class="img-fluid" alt="@room.Name">
                     }
                     else

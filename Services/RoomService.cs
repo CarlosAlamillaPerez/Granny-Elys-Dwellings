@@ -545,7 +545,7 @@ namespace GrannyEly.Services
             return _rooms;
         }
 
-        public RoomModel GetRoom(int id)
+        public RoomModel? GetRoom(int id)
         {
             return _rooms.FirstOrDefault(r => r.Id == id);
         }
