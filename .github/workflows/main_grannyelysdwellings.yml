@@ -19,9 +19,6 @@ jobs:
         with:
           dotnet-version: '8.x'
       
-      - name: List files in the repository
-        run: dir /s /b
-      
       - name: Build with dotnet
         run: dotnet build GrannyEly.sln --configuration Release
       
