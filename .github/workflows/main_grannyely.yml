@@ -50,6 +50,13 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B6F4EEE679FF4592972872584F123C0C }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1463827FC6E545E9AB82D1CB6BE66E46 }}
       
+      - name: Show directory structure
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          dir /s
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -57,3 +64,4 @@ jobs:
           app-name: 'GrannyElysDwellings'
           slot-name: 'Production'
           package: .
+          publish-profile: ${{ secrets.AZUREWEBAPP_PUBLISHPROFILE }}
