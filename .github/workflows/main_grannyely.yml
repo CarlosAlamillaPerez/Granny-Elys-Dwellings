@@ -19,6 +19,9 @@ jobs:
       
       - name: Build with dotnet
         run: dotnet build ./GrannyEly.sln --configuration Release
+
+      - name: dotnet publish
+        run: dotnet publish ./GrannyEly.sln -c Release -o ./myapp
         
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
