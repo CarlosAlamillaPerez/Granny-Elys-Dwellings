@@ -20,11 +20,14 @@ jobs:
       - name: Build with dotnet
         run: dotnet build ./GrannyEly.sln --configuration Release
       
+      - name: dotnet publish
+        run: dotnet publish ./GrannyEly.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./GrannyEly/bin/Release/net8.0
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -44,5 +47,6 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'GrannyEly'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREWEBAPP_PUBLISHPROFILE }}
           package: .
