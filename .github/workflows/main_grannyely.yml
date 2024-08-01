@@ -1,4 +1,5 @@
-name: Build and deploy ASP.Net Core app to Azure Web App - GrannyElysDwellings
+name: Build and deploy ASP.Net Core app to Azure Web App - GrannyEly
+
 on:
   push:
     branches:
@@ -52,18 +53,10 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B6F4EEE679FF4592972872584F123C0C }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1463827FC6E545E9AB82D1CB6BE66E46 }}
       
-      - name: Show directory structure
-        run: |
-          echo "Current directory:"
-          Get-Location
-          echo "Directory contents:"
-          Get-ChildItem -Recurse
-      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'GrannyElysDwellings'
-          slot-name: 'Production'
+          app-name: 'GrannyEly'
           publish-profile: ${{ secrets.AZUREWEBAPP_PUBLISHPROFILE }}
           package: .
