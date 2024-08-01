@@ -1,14 +1,12 @@
-name: Build and deploy ASP.Net Core app to Azure Web App - GrannyElysDwellings
+name: Build and deploy ASP.Net Core app to Azure Web App - GrannyEly
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
 permissions:
   id-token: write
   contents: read
-
 jobs:
   build:
     runs-on: windows-latest
@@ -31,7 +29,6 @@ jobs:
         with:
           name: .net-app
           path: ./myapp
-
   deploy:
     runs-on: windows-latest
     needs: build
