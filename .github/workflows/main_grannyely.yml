@@ -36,7 +36,6 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
-
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -57,4 +56,18 @@ jobs:
           app-name: 'GrannyEly'
           slot-name: 'Production'
           package: .
-          
+
+      - name: Force HTTPS
+        run: |
+          az webapp update --resource-group Grupo_F1 --name GrannyEly --https-only true
+          az webapp config set --resource-group Grupo_F1 --name GrannyEly --min-tls-version 1.2
+
+      - name: Verify deployment
+        run: |
+          $response = Invoke-WebRequest -Uri https://grannyely.azurewebsites.net -UseBasicParsing
+          if ($response.StatusCode -eq 200) { 
+            Write-Host "Deployment successful!"
+          } else {
+            Write-Error "Deployment verification failed. Status code: $($response.StatusCode)"
+            exit 1
+          }
